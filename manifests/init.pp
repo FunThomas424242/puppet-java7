@@ -22,6 +22,7 @@ class java7 (
         include_src       => $include_src,
       }
       package { 'oracle-java7-installer':
+      	allowcdrom=> true,
         responsefile => '/tmp/java.preseed',
         require      => [
                           Apt::Source['webupd8team'],
@@ -34,6 +35,7 @@ class java7 (
 
       apt::ppa { 'ppa:webupd8team/java': }
       package { 'oracle-java7-installer':
+      	allowcdrom=> true,
         responsefile => '/tmp/java.preseed',
         require      => [
                           Apt::Ppa['ppa:webupd8team/java'],
